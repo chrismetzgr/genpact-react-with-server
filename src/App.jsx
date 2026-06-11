@@ -13,7 +13,7 @@ import StudentList from "./StudentList"
 // PUT/PATCH - Updating
 // DELETE - Deleting
 
-const studentsEndpoint = "http://localhost:3000/students"
+const studentsEndpoint = "http://localhost:5000/students"
 
 export default function App() {
   const [students, setStudents] = useState([]);
