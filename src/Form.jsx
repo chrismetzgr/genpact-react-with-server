@@ -6,9 +6,6 @@ export default function Form({ setStudents }) {
     const [grade, setGrade] = useState("");
 
     async function createStudent() {
-        // Optimistic render is changing data in the client before a successful response
-        // from the server/network request in anticipation of success
-        // setStudents({ name })
         const response = await fetch(studentsEndpoint, {
             method: "POST",
             headers: {
@@ -17,7 +14,6 @@ export default function Form({ setStudents }) {
             body: JSON.stringify({ name, grade })
         })
         const parsedResponse = await response.json()
-        // Pessimistic rendering waits for a successful server response
         setStudents((prevState) => {
             return [...prevState, parsedResponse]
         })
